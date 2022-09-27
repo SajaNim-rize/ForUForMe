@@ -9,7 +9,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //todo remove
-        Log.d("JAR", "Hello World! - TEST CODE")
     }
 }
