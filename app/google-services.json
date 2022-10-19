@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "189502123748",
+    "project_id": "foruforme-27b72",
+    "storage_bucket": "foruforme-27b72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189502123748:android:313ccf96bf3202cdff46f1",
+        "android_client_info": {
+          "package_name": "com.foruforme.foru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189502123748-llk1dp9kb4eq6kdbtq3j5qpklvjimtur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBijax3ugdt0SJ9fAo6_1q_jbe_p9MUsLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189502123748-llk1dp9kb4eq6kdbtq3j5qpklvjimtur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
