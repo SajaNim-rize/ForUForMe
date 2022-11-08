@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "998558012441",
+    "firebase_url": "https://memowebapp-afeb4.firebaseio.com",
+    "project_id": "memowebapp-afeb4",
+    "storage_bucket": "memowebapp-afeb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998558012441:android:948d6ae37b898ad603c688",
+        "android_client_info": {
+          "package_name": "com.foruforme.foru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998558012441-507on5opipofu8qa091b9ccuacbgl4cs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foruforme.foru",
+            "certificate_hash": "07b0d0fd95b755ee20404c5bf392bfd42476ac40"
+          }
+        },
+        {
+          "client_id": "998558012441-rorpl5n107lksc934epmrl8jracd4mff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBICON7wHzkSgv6NXmDk-ElyG__aLmmkCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998558012441-rorpl5n107lksc934epmrl8jracd4mff.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "998558012441-pc8r88i4hj5j1t76ile43pcshi2o1l27.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.phvalue.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
