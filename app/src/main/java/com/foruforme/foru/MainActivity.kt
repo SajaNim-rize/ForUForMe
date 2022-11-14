@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         setContentView(binding.root)
 
         binding.bottomNav.setOnItemSelectedListener(this)
-
+        initBottomNavigation()
     }
 
     override fun onBackPressed() {
@@ -56,4 +56,22 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         return true
     }
 
+    private fun initBottomNavigation() {
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.framelayout, OverviewFragment())
+            .commitAllowingStateLoss()
+
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.framelayout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.framelayout, OverviewFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+                else -> {return@setOnItemSelectedListener true}
+            }
+        }
+    }
 }
