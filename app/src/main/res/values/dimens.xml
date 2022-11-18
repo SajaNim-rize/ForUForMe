@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- padding -->
+    <dimen name="layout_horizontal_padding">18dp</dimen>
+    <dimen name="layout_vertical_padding">18dp</dimen>
+
+    <!-- font size -->
+    <dimen name="title_font_size">20dp</dimen>
+    <dimen name="subtitle_font_size">16dp</dimen>
+
+    <!-- font etc -->
+    <dimen name="title_font_line_height">160dp</dimen>
+    <integer name="title_font_weight">600</integer>
+    <integer name="subtitle_font_weight">500</integer>
+
+    <dimen name="img_btn_min_size">24dp</dimen>
+    <dimen name="img_btn_max_size">24dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

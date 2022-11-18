@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ForUForMe</string>
+
+    <!--  -->
+    <string name="title_settings">환경설정</string>
+    <string name="str_profile">프로필</string>
+    <string name="str_alert">알림</string>
+    <string name="str_password">비밀번호</string>
+    <string name="str_backup">백업/복구</string>
+    <string name="str_notice">공지사항</string>
+    <string name="str_submit">의견 보내기</string>
 </resources>
