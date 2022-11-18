@@ -3,15 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_overview"
         android:icon="@drawable/nav_overview"
         android:title="Overview" />
     <item
-        android:id="@+id/menu_chat"
         android:icon="@drawable/nav_chat"
         android:title="Home" />
     <item
-        android:id="@+id/menu_setting"
         android:icon="@drawable/nav_setting"
         android:title="Setting" />
 
