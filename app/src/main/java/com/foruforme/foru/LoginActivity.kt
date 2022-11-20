@@ -1,25 +1,41 @@
 package com.foruforme.foru
 
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.nfc.Tag
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.foruforme.foru.databinding.ActivityMainBinding
 import com.foruforme.foru.databinding.LoginActivityBinding
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.GetSignInIntentRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlin.math.sign
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.login_activity)
+        Log.d(TAG, "onCreate!!")
         auth = Firebase.auth
 
         mBinding = LoginActivityBinding.inflate(layoutInflater)
@@ -53,9 +70,9 @@ class LoginActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if (currentUser == null) {
             oneTapSignIn()
+            Log.d(TAG, "currentUser 1 : " + currentUser)
         }
 
-        Log.d(TAG, "onCreate!!")
     }
 
     override fun onStart() {
@@ -66,21 +83,13 @@ class LoginActivity : AppCompatActivity() {
         //인증 성공 시 MainActivity로 화면 전환.
         //차후 MainActivity에서 메뉴바로 로그아웃 버튼 및 기능 만들어야 함.
         //updateUI(currentUser)
-
-        Log.d(TAG, "mCheckBack : " + mCheckBack)
-        if(!mCheckBack){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onPause() {
         super.onPause()
         Log.d(TAG, "onPause!!!")
-
-        mCheckBack = true
-        finish()
     }
+
 
 
     private fun handleSignInResult(data: Intent?) {
@@ -98,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
             }
         } catch (e: ApiException) {
             // Google Sign In failed, update UI appropriately
-            Log.w(TAG, "Google sign in failed", e)
+            Log.w(TAG, "Google sign in failed : " +  e.status)
             updateUI(null)
         }
     }
@@ -126,7 +135,13 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    updateUI(user)
+                    //updateUI(user)
+
+                    Log.d(TAG, "mCheckBack : " + mCheckBack)
+                    if(!mCheckBack && user != null){
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -203,6 +218,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
+        mCheckBack = true
         mBinding = null
         Log.d(TAG, "onDestroy!!")
     }
